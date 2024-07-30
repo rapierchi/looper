@@ -5,7 +5,7 @@ import (
 	"log"
 	"strings"
 
-	"github.com/bobappleyard/readline"
+	"github.com/chzyer/readline"
 )
 
 type Command int
@@ -21,8 +21,14 @@ func CommandParser() <-chan Command {
 	commands := make(chan Command, 1)
 
 	go func() {
+		rl, err := readline.New("> ")
+		if err != nil {
+			panic(err)
+		}
+		defer rl.Close()
+
 		for {
-			in, err := readline.String("")
+			in, err := rl.Readline()
 			if err == io.EOF { // Ctrl+D
 				commands <- Exit
 				break
