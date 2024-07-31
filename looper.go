@@ -5,7 +5,7 @@ import (
 	"flag"
 	"log"
 
-	"github.com/nathany/looper/gat"
+	"github.com/rapierchi/looper/gat"
 )
 
 type Runner interface {

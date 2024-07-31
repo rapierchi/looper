@@ -1,4 +1,4 @@
-module github.com/nathany/looper
+module github.com/rapierchi/looper
 
 go 1.13
 
